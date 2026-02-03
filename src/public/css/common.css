@@ -1,0 +1,32 @@
+.header {
+    border-bottom: 1px solid #aaa;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 0 15px;
+    max-width: 1230px;
+}
+
+.header__logo {
+    margin: 0;
+    color: #bf9e3b;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.header__item {
+    margin: auto 0;
+}
+
+.header__auth {
+    background: #ddd;
+    color: #aaaa88;
+    border: 1px solid #aaaa88;
+    padding: 2px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
