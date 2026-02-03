@@ -1,40 +1,51 @@
+# =========================
 # Environment
+# =========================
 .env
 .env.*
 .env.backup
 
+# =========================
 # Composer / Node
-/vendor
-/node_modules
+# =========================
+/vendor/
+/node_modules/
 
+# =========================
 # Laravel storage
+# =========================
 /storage/*
-!storage/.gitignore
-!storage/app/public/
-storage/*.key
+!/storage/.gitignore
+!/storage/app/public/
+/storage/*.key
 
+# =========================
 # Cache
+# =========================
 /bootstrap/cache/*
-!bootstrap/cache/.gitignore
+!/bootstrap/cache/.gitignore
 
+# =========================
 # Public
+# =========================
 /public/storage
 /public/hot
 
-# Logs
+# =========================
+# Logs / cache
+# =========================
 npm-debug.log*
 yarn-error.log*
 .phpunit.result.cache
 
+# =========================
 # IDE
-/.idea
-/.vscode
+# =========================
+.idea
+.vscode
 
-# Homestead
-Homestead.json
-Homestead.yaml
-
-# Docker
-docker-compose.override.yml
-/docker/mysql/data
-/docker/postgres/data
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
