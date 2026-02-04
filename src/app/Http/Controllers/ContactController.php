@@ -8,7 +8,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('contact');
+        // return view('contact');
+        return view('index');
     }
 
     public function confirm(Request $request)

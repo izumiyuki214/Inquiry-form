@@ -19,7 +19,7 @@
         <h1 class="header__logo">FashionablyLate</h1>
       </div>
       <div class="header__item">
-        <a class="header__auth" href="/a">login</a>
+        
         @yield('auth')
       </div>
     </div>

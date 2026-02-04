@@ -22,8 +22,8 @@
 }
 
 .header__auth {
-    background: #ddd;
     color: #aaaa88;
+    background: #ddd;
     border: 1px solid #aaaa88;
     padding: 2px 15px;
     text-decoration: none;
