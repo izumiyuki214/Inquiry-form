@@ -4,16 +4,17 @@
     max-width: 1230px;
 }
 
-.search__title--h2 {
+.search__title-h2 {
     text-align: center;
     color: #bf9e3b;
+    font-weight: bold;
 }
 
 .search-form {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     width: 90%;
     text-align: center;
 }
@@ -137,6 +138,72 @@
     display: block;
 }
 
+.user-experience {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.export-form {
+    width: 15%;
+}
+
+.export-form__button-submit{
+    height: 30px;
+    width: 100%;
+    color: #555;
+    background: #ddd;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-table {
+    margin: 10px auto;
+    width: 90%;
+    text-align: center;
+}
+
+.contact-table__inner {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.contact-table__row:first-child {
+    background-color: #666;
+}
+
+.contact-table__row {
+    border-bottom: 1px solid #ccc;
+}
+
+
+.contact-table__header {
+    text-align: left;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+}
+
+
+
+.contact-table__item {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    color: #777;
+}
+
+.contact-table__detail-button {
+    width: 60px;
+    height: 30px;
+    border-radius: 3px;
+    background: #eee;
+    color: #777;
+    border: 1px solid #777;
+    cursor: pointer;
+}
 
 .modal {
     position: fixed;
@@ -153,7 +220,7 @@
     position: relative;
     margin: 10vh auto;
     width: 90%;
-    max-width: 500px;
+    max-width: 700px;
 }
 
 .modal-content {
@@ -161,20 +228,53 @@
     border: 1px solid #aaaa88;
     border-radius: 5px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
-    padding: 16px;
+    padding: 20px 50px;
 }
 
-.modal-header,
-.modal-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.modal__close {
+    margin: 20px 0;
+    text-align: right;
 }
 
-.modal-body {
-    margin: 12px 0;
+.modal__close-submit {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #777;
+    color: #777;
+    cursor: pointer;
 }
 
-* {
-    /* border: 1px solid #000; */
+.modal-table {
+    margin: 20px;
+}
+
+.modal-table__row {
+    height: 50px;
+    
+}
+
+.modal-table__header {
+    vertical-align: top;
+    text-align: left;
+    width: 30%;
+}
+
+.modal-table__data {
+    vertical-align: top;
+    text-align: left;
+}
+
+.modal__delete {
+    text-align: center;
+}
+
+.modal__delete-submit {
+    height: 25px;
+    width: 60px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #fff;
+    background: #a00;
 }
