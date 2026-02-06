@@ -1,0 +1,93 @@
+.contact-form__content {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1230px;
+}
+
+.contact-form__heading {
+    text-align: center;
+    color: #bf9e3b;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: serif;
+}
+
+.contact-form {
+    margin: 10px auto;
+    width: 90%;
+    text-align: center;
+}
+
+.contact-table {
+    width: 100%;
+}
+
+.contact-table__row {
+    margin-top: 20px;
+    height: 50px;
+}
+
+.contact-table__header {
+    vertical-align: top;
+    text-align: left;
+    width: 30%;
+}
+
+.contact-table__header-item {
+    color: #555;
+}
+
+.contact-table__header-required {
+    color: #c00;
+}
+
+.contact-table__name {
+    vertical-align: top;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-table__name-input {
+    height: 30px;
+    width: 45%;
+}
+
+.contact-table__gender {
+    vertical-align: top;
+    text-align: left;
+}
+
+.contact-table__gender-input {
+    margin-left: 10px;
+    accent-color: #555;
+}
+
+.contact-table__gender-label {
+    margin-right: 15%;
+    color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-table__error {
+    vertical-align: top;
+    text-align: left;
+    color: #c00;
+}
+
+ul {
+    margin-top: 0;
+}
+
+* {
+    border: 1px solid #000;
+}

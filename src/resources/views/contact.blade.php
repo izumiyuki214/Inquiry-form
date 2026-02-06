@@ -5,73 +5,114 @@
 @endsection
 
 @section('content')
-
 <div class="contact-form__content">
   <div class="contact-form__heading">
-    <h2>お問い合わせ</h2>
+    <h2>Contact</h2>
   </div>
-  <form class="form" action="contacts/confirm" method="post">
-    @csrf
-    <div class="form__group">
-      <div class="form__group-title">
-        <span class="form__label--item">お名前</span>
-        <span class="form__label--required">必須</span>
-      </div>
-      <div class="form__group-content">
-        <div class="form__input--text">
-          <input type="text" name="name" placeholder="テスト太郎" value="{{ old('name') }}" />
-        </div>
-        <div class="form__error">
-          @error('name')
-          {{ $message }}
-          @enderror
-        </div>
-      </div>
-    </div>
-    <div class="form__group">
-      <div class="form__group-title">
-        <span class="form__label--item">メールアドレス</span>
-        <span class="form__label--required">必須</span>
-      </div>
-      <div class="form__group-content">
-        <div class="form__input--text">
-          <input type="email" name="email" placeholder="test@example.com" value="{{ old('email') }}" />
-        </div>
-        <div class="form__error">
-          @error('email')
-          {{ $message }}
-          @enderror
-        </div>
-      </div>
-    </div>
-    <div class="form__group">
-      <div class="form__group-title">
-        <span class="form__label--item">電話番号</span>
-        <span class="form__label--required">必須</span>
-      </div>
-      <div class="form__group-content">
-        <div class="form__input--text">
-          <input type="tel" name="tel" placeholder="09012345678" value="{{ old('tel') }}" />
-        </div>
-        <div class="form__error">
-          @error('tel')
-          {{ $message }}
-          @enderror
-        </div>
-      </div>
-    </div>
-    <div class="form__group">
-      <div class="form__group-title">
-        <span class="form__label--item">お問い合わせ内容</span>
-      </div>
-      <div class="form__group-content">
-        <div class="form__input--textarea">
-          <textarea name="content" placeholder="資料をいただきたいです">{{ old('content') }}</textarea>
-        </div>
-      </div>
-    </div>
-    <div class="form__button">
-      <button class="form__button-submit" type="submit">送信</button>
+  <form action="/confirm" class="contact-form" method="post">
+  @csrf
+    <table class="contact-table">
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">お名前</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__name">
+          <input type="text" class="contact-table__name-input">
+          <input type="text" class="contact-table__name-input">
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th></th>
+        <td class="contact-table__error">
+          <ul>
+            <li>文字列で入力してください</li>
+            <li>文字列で入力してください</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">性別</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__gender">
+          <input class="contact-table__gender-input" type="radio" name="gender" value="1" id="Choice1">
+          <label class="contact-table__gender-label" for="Choice1">男性</label>
+          <input class="contact-table__gender-input" type="radio" name="gender" value="2" id="Choice2">
+          <label class="contact-table__gender-label" for="Choice2">女性</label>
+          <input class="contact-table__gender-input" type="radio" name="gender" value="3" id="Choice3">
+          <label class="contact-table__gender-label" for="Choice3">その他</label>
+        </td>
+      </tr>
+
+      </tr>
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">メールアドレス</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__data">
+
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">電話番号</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__data">
+
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">住所</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__data">
+
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">建物名</span>
+        </th>
+        <td class="contact-table__data">
+
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">お問い合わせの種類</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__data">
+
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">お問い合わせ内容</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__data">
+
+        </td>
+      </tr>
+
+    </table>
+    <div class="contact-table__button">
+      <button class="contact-table__button-submit">
+        確認画面
+      </button>
     </div>
   </form>
 </div>
