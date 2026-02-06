@@ -7,7 +7,9 @@
 .search__title-h2 {
     text-align: center;
     color: #bf9e3b;
+    font-size: 20px;
     font-weight: bold;
+    font-family: serif;
 }
 
 .search-form {
@@ -251,21 +253,23 @@
 
 .modal-table__row {
     height: 50px;
-    
 }
 
 .modal-table__header {
     vertical-align: top;
     text-align: left;
-    width: 30%;
+    width: 35%;
+    color: #555;
 }
 
 .modal-table__data {
     vertical-align: top;
     text-align: left;
+    color: #777;
 }
 
 .modal__delete {
+    margin: 50px 0;
     text-align: center;
 }
 

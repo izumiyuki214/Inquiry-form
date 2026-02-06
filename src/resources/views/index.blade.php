@@ -5,7 +5,7 @@
 @endsection
 
 @section('auth')
-<a class="header__auth" href="/a">login</a>
+<a class="header__auth" href="/logout">logout</a>
 @endsection
 
 @section('content')
@@ -69,7 +69,15 @@
       <!-- foreach -->
       <tr class="contact-table__row">
         <td class="contact-table__item">山田 太郎</td>
-        <td class="contact-table__item">男性</td>
+        <td class="contact-table__item">
+        @if ($contact->gender === 1)
+          男性
+        @elseif ($contact->gender === 2)
+          女性
+        @elseif ($contact->gender === 3)
+          その他
+        @endif
+        </td>
         <td class="contact-table__item">test@example.com</td>
         <td class="contact-table__item">商品の交換について</td>
         <td class="contact-table__item">
