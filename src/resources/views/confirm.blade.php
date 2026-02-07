@@ -5,42 +5,123 @@
 @endsection
 
 @section('content')
-<div class="confirm__content">
-  <div class="confirm__heading">
-    <h2>お問い合わせ内容確認</h2>
+<div class="contact-form__content">
+  <div class="contact-form__heading">
+    <h2>Confirm</h2>
   </div>
-  <form class="form" action="/contacts" method="post">
-    @csrf
-    <div class="confirm-table">
-      <table class="confirm-table__inner">
-        <tr class="confirm-table__row">
-          <th class="confirm-table__header">お名前</th>
-          <td class="confirm-table__text">
-            <input type="text" name="name" value="{{ $contact['name'] }}" readonly />
-          </td>
-        </tr>
-        <tr class="confirm-table__row">
-          <th class="confirm-table__header">メールアドレス</th>
-          <td class="confirm-table__text">
-            <input type="email" name="email" value="{{ $contact['email'] }}" readonly />
-          </td>
-        </tr>
-        <tr class="confirm-table__row">
-          <th class="confirm-table__header">電話番号</th>
-          <td class="confirm-table__text">
-            <input type="tel" name="tel" value="{{ $contact['tel'] }}" readonly />
-          </td>
-        </tr>
-        <tr class="confirm-table__row">
-          <th class="confirm-table__header">お問い合わせ内容</th>
-          <td class="confirm-table__text">
-            <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="form__button">
-      <button class="form__button-submit" type="submit">送信</button>
+  <form action="/confirm" class="contact-form" method="post">
+  @csrf
+    <table class="contact-table">
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">お名前</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__name">
+          <input type="text" class="contact-table__name-input">
+          <input type="text" class="contact-table__name-input">
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th></th>
+        <td class="contact-table__error">
+          <ul>
+            <li>文字列で入力してください</li>
+            <li>文字列で入力してください</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">性別</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__gender">
+          <input class="contact-table__gender-input" type="radio" name="gender" value="1" id="Choice1">
+          <label class="contact-table__gender-label" for="Choice1">男性</label>
+          <input class="contact-table__gender-input" type="radio" name="gender" value="2" id="Choice2">
+          <label class="contact-table__gender-label" for="Choice2">女性</label>
+          <input class="contact-table__gender-input" type="radio" name="gender" value="3" id="Choice3">
+          <label class="contact-table__gender-label" for="Choice3">その他</label>
+        </td>
+      </tr>
+
+      </tr>
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">メールアドレス</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__email">
+          <input type="text" class="contact-table__email-input">
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">電話番号</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__tel">
+          <input type="text" class="contact-table__tel-input">
+          <span class="contact-table__tel-span">-</span>
+          <input type="text" class="contact-table__tel-input">
+          <span class="contact-table__tel-span">-</span>
+          <input type="text" class="contact-table__tel-input">
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">住所</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__address">
+          <input type="text" class="contact-table__address-input">
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">建物名</span>
+        </th>
+        <td class="contact-table__building">
+          <input type="text" class="contact-table__building-input">
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">お問い合わせの種類</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__detail">
+          <div class="contact-table__detail--symbol">
+            <select class="contact-table__detail-select" name="" id="">
+              <option value="" selected disabled>選択してください</option>
+              <option value=""></option>
+
+              </select>
+            </div>
+        </td>
+      </tr>
+
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-item">お問い合わせ内容</span>
+          <span class="contact-table__header-required">※</span>
+        </th>
+        <td class="contact-table__detail">
+          <textarea class="contact-table__detail-textarea" name="textarea" cols="30" rows="4"></textarea>
+        </td>
+      </tr>
+    </table>
+    <div class="contact-table__button">
+      <button class="contact-table__button-submit">
+        確認画面
+      </button>
     </div>
   </form>
 </div>

@@ -54,8 +54,8 @@
           <span class="contact-table__header-item">メールアドレス</span>
           <span class="contact-table__header-required">※</span>
         </th>
-        <td class="contact-table__data">
-
+        <td class="contact-table__email">
+          <input type="text" class="contact-table__email-input">
         </td>
       </tr>
 
@@ -64,8 +64,12 @@
           <span class="contact-table__header-item">電話番号</span>
           <span class="contact-table__header-required">※</span>
         </th>
-        <td class="contact-table__data">
-
+        <td class="contact-table__tel">
+          <input type="text" class="contact-table__tel-input">
+          <span class="contact-table__tel-span">-</span>
+          <input type="text" class="contact-table__tel-input">
+          <span class="contact-table__tel-span">-</span>
+          <input type="text" class="contact-table__tel-input">
         </td>
       </tr>
 
@@ -74,8 +78,8 @@
           <span class="contact-table__header-item">住所</span>
           <span class="contact-table__header-required">※</span>
         </th>
-        <td class="contact-table__data">
-
+        <td class="contact-table__address">
+          <input type="text" class="contact-table__address-input">
         </td>
       </tr>
 
@@ -83,8 +87,8 @@
         <th class="contact-table__header">
           <span class="contact-table__header-item">建物名</span>
         </th>
-        <td class="contact-table__data">
-
+        <td class="contact-table__building">
+          <input type="text" class="contact-table__building-input">
         </td>
       </tr>
 
@@ -93,8 +97,14 @@
           <span class="contact-table__header-item">お問い合わせの種類</span>
           <span class="contact-table__header-required">※</span>
         </th>
-        <td class="contact-table__data">
+        <td class="contact-table__detail">
+          <div class="contact-table__detail--symbol">
+            <select class="contact-table__detail-select" name="" id="">
+              <option value="" selected disabled>選択してください</option>
+              <option value=""></option>
 
+              </select>
+            </div>
         </td>
       </tr>
 
@@ -103,11 +113,10 @@
           <span class="contact-table__header-item">お問い合わせ内容</span>
           <span class="contact-table__header-required">※</span>
         </th>
-        <td class="contact-table__data">
-
+        <td class="contact-table__detail">
+          <textarea class="contact-table__detail-textarea" name="textarea" cols="30" rows="4"></textarea>
         </td>
       </tr>
-
     </table>
     <div class="contact-table__button">
       <button class="contact-table__button-submit">

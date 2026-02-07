@@ -50,6 +50,10 @@
 .contact-table__name-input {
     height: 30px;
     width: 45%;
+    border: none;
+    border-radius: 3px;
+    background: #eee;
+    color: #777;
 }
 
 .contact-table__gender {
@@ -60,6 +64,11 @@
 .contact-table__gender-input {
     margin-left: 10px;
     accent-color: #555;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    background: #eee;
+    color: #777;
 }
 
 .contact-table__gender-label {
@@ -67,16 +76,91 @@
     color: #555;
 }
 
+.contact-table__email,
+.contact-table__address,
+.contact-table__building {
+    vertical-align: top;
+}
+
+.contact-table__email-input,
+.contact-table__address-input,
+.contact-table__building-input {
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: #eee;
+    color: #777;
+}
+
+.contact-table__tel {
+    vertical-align: top;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-table__tel-input {
+    width: 30%;
+    padding: 0 10px;
+    border: none;
+    border-radius: 3px;
+    background: #eee;
+    color: #777;
+}
+
+
+.contact-table__detail {
+    vertical-align: top;
+}
+
+.contact-table__detail--symbol {
+    position: relative;
+    text-align: left;
+    width: 50%;
+}
 
 
 
+.contact-table__detail--symbol::after {
+    content: "▼";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #bbb;
+}
 
+.contact-table__detail-select {
+    height: 30px;
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+    padding: 0 10px;
+    border: none;
+    border-radius: 3px;
+    background: #eee;
+    color: #777;
+}
 
+.contact-table__tel-span {
+    color: #555;
+}
 
+.contact-table__detail {
+    vertical-align: top;
+}
 
+.contact-table__detail-textarea {
+    padding: 5px 10px;
+    width: 100%;
+    line-height: 20px;
+    border: none;
+    border-radius: 3px;
+    background: #eee;
+    color: #777;
 
-
-
+}
 
 .contact-table__error {
     vertical-align: top;
@@ -88,6 +172,18 @@ ul {
     margin-top: 0;
 }
 
-* {
-    border: 1px solid #000;
+
+.contact-table__button {
+    margin: 20px auto;
+    width: 100px;
+}
+
+.contact-table__button-submit {
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: #7c7b7b;
+    color: #fff;
+    cursor: pointer;
 }
