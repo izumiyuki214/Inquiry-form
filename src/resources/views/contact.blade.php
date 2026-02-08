@@ -10,7 +10,7 @@
     <h2>Contact</h2>
   </div>
   <form action="/confirm" class="contact-form" method="post">
-  @csrf
+    @csrf
     <table class="contact-table">
       <tr class="contact-table__row">
         <th class="contact-table__header">
@@ -203,7 +203,7 @@
       @endif
     </table>
     <div class="contact-table__button">
-      <button class="contact-table__button-submit">
+      <button type="submit" class="contact-table__button-submit">
         確認画面
       </button>
     </div>
