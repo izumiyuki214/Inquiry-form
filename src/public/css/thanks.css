@@ -1,0 +1,51 @@
+.thanks__content {
+    margin: 0 auto;
+    padding: 15px 15px;
+    max-width: 1230px;
+}
+
+.thanks__header {
+    position: relative;
+    align-items: center;
+    padding: 200px 0;
+
+}
+
+.thanks__header::after {
+    content: 'Thank you';
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 150px;
+    color: rgba(210, 190, 117, 0.129);
+    z-index: -1;
+    white-space: nowrap;
+    font-family: serif;
+}
+
+.thanks__title {
+    text-align: center;
+    font-size: 20px;
+    color: #857859;
+    margin: 0;
+}
+
+.thanks__button {
+    margin: 20px auto;
+    width: 100px;
+}
+
+.thanks__button-a {
+    padding: 5px 0;
+    height: 40px;
+    width: 100%;
+    border-radius: 3px;
+    background: #796952;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-family: serif;
+}
