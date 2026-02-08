@@ -14,9 +14,11 @@ use App\Http\Controllers\ContactController;
 |
 */
 // 問い合わせフォーム
-Route::get('/', [ContactController::class, 'index']);
+Route::get('/', [ContactController::class, 'index'])->name('contact');
 Route::post('/confirm', [ContactController::class, 'confirm']);
+Route::get('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store']);
+
 
 // ユーザー認証
 Route::middleware('auth')->group(function () {
