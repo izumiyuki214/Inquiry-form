@@ -54,6 +54,7 @@
     border-radius: 3px;
     background: #eee;
     color: #777;
+    padding-left: 30px;
 }
 
 .contact-table__gender {
@@ -91,6 +92,7 @@
     border-radius: 3px;
     background: #eee;
     color: #777;
+    padding-left: 30px;
 }
 
 .contact-table__tel {
@@ -101,27 +103,29 @@
 
 .contact-table__tel-input {
     width: 30%;
-    padding: 0 10px;
+    padding: 0 auto;
     border: none;
     border-radius: 3px;
     background: #eee;
     color: #777;
+    text-align: center;
 }
 
+.contact-table__tel-span {
+    color: #555;
+}
 
-.contact-table__detail {
+.contact-table__category {
     vertical-align: top;
 }
 
-.contact-table__detail--symbol {
+.contact-table__category--symbol {
     position: relative;
     text-align: left;
     width: 50%;
 }
 
-
-
-.contact-table__detail--symbol::after {
+.contact-table__category--symbol::after {
     content: "▼";
     position: absolute;
     right: 5px;
@@ -131,7 +135,7 @@
     color: #bbb;
 }
 
-.contact-table__detail-select {
+.contact-table__category-select {
     height: 30px;
     width: 100%;
     appearance: none;
@@ -141,25 +145,23 @@
     border-radius: 3px;
     background: #eee;
     color: #777;
+    padding-left: 30px;
 }
 
-.contact-table__tel-span {
-    color: #555;
-}
+
 
 .contact-table__detail {
     vertical-align: top;
 }
 
 .contact-table__detail-textarea {
-    padding: 5px 10px;
+    padding: 5px 30px;
     width: 100%;
     line-height: 20px;
     border: none;
     border-radius: 3px;
     background: #eee;
     color: #777;
-
 }
 
 .contact-table__error {
