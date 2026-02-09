@@ -5,7 +5,10 @@
 @endsection
 
 @section('auth')
-<a class="header__auth" href="/logout">logout</a>
+<form class="form" action="/logout" method="post">
+  @csrf
+  <button class="header__auth">logout</button>
+</form>
 @endsection
 
 @section('content')
@@ -13,28 +16,30 @@
   <div class="search__title">
     <h2 class="search__title-h2">Admin</h2>
   </div>
-  <form class="search-form" action="/search" method="post">
+  <form class="search-form" action="/search" method="get">
   @csrf
     <div class="search-form__item">
-      <input class="search-form__item-input" type="text" placeholder="名前やメールアドレスを入力してください">
+      <input class="search-form__item-input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="名前やメールアドレスを入力してください">
       <div class="search-form__item-gender">
-        <select class="search-form__item-gender--select" name="" id="">
-          <option value="" selected disabled>性別</option>
-          <option value="">男性</option>
-          <option value="">女性</option>
-          <option value="">その他</option>
+        <select class="search-form__item-gender--select" name="gender">
+          <option value="" {{ request('gender')==='' ? 'selected' : '' }}>性別</option>
+          <option value="all" {{ request('gender')==='all' ? 'selected' : '' }}>全て</option>
+          <option value="1" {{ request('gender')==='1' ? 'selected' : '' }}>男性</option>
+          <option value="2" {{ request('gender')==='2' ? 'selected' : '' }}>女性</option>
+          <option value="3" {{ request('gender')==='3' ? 'selected' : '' }}>その他</option>
         </select>
       </div>
       <div class="search-form__item-categories">
-        <select class="search-form__item-categories--select" name="" id="">
-          <option value="" selected disabled>お問い合わせの種類</option>
-          <!-- foreach ($categories as $category) -->
-          <option value=""></option>
-          <!-- endforeach -->
+        <select class="search-form__item-categories--select" name="category_id">
+          <option value="" {{ request('category_id')==='' ? 'selected' : '' }}>お問い合わせの種類</option>
+          @foreach ($categories as $category)
+          <option value="{{ $category->id }}" {{ (string)request('category_id')===(string)$category->id ? 'selected' : '' }}>
+            {{ $category->content }}
+          @endforeach
         </select>
       </div>
       <div class="search-form__item-time">
-        <input class="search-form__item-time--input" type="date">
+        <input class="search-form__item-time--input" type="date" name="date" value="{{ request('date') }}">
       </div>
     </div>
     <div class="search-form__button">
@@ -45,20 +50,23 @@
     </div>
   </form>
   <div class="user-experience">
-    <from class="export-form" action="/export" method="post">
-      @csrf
+    <form class="export-form" action="/export" method="get">
+      <input type="hidden" name="keyword" value="{{ request('keyword') }}">
+      <input type="hidden" name="gender" value="{{ request('gender') }}">
+      <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+      <input type="hidden" name="date" value="{{ request('date') }}">
       <div class="export-form__button">
-        <button class="export-form__button-submit">
+        <button class="export-form__button-submit"  type="submit">
           エクスポート
         </button>
       </div>
-    </from>
+    </form>
     <div class="pagination">
-      1
+      {{ $contacts->appends(request()->query())->links() }}
     </div>
   </div>
   <div class="contact-table">
-    <table class="contact-table__inner">
+    <table class="contact-table__inner js-col-hover">
       <tr class="contact-table__row">
         <th class="contact-table__header">お名前</th>
         <th class="contact-table__header">性別</th>
@@ -66,37 +74,34 @@
         <th class="contact-table__header">お問い合わせの種類</th>
         <th class="contact-table__header"></th>
       </tr>
-      <!-- foreach -->
+      @foreach ($contacts as $contact) 
       <tr class="contact-table__row">
-        <td class="contact-table__item">山田 太郎</td>
+        <td class="contact-table__item">{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
         <td class="contact-table__item">
-        @if ($contact->gender === 1)
-          男性
-        @elseif ($contact->gender === 2)
-          女性
-        @elseif ($contact->gender === 3)
-          その他
-        @endif
+          @php
+              $genders = [1 => '男性', 2 => '女性', 3 => 'その他'];
+          @endphp
+          {{ $genders[$contact['gender']] }}
         </td>
-        <td class="contact-table__item">test@example.com</td>
-        <td class="contact-table__item">商品の交換について</td>
+        <td class="contact-table__item">{{ $contact['email'] }}</td>
+        <td class="contact-table__item">{{ $contact['category']['content'] }}</td>
         <td class="contact-table__item">
           <button class="contact-table__detail-button btn-sm js-detail"
-          data-id="1"
-          data-name="山田 太郎"
-          data-gender="男性"
-          data-email="test@example.com"
-          data-tel="08012345678"
-          data-address="東京都渋谷区千駄々谷1-2-3"
-          data-building="千駄々谷マンション101"
-          data-category="商品の交換について"
-          data-detail="届いた商品が注文した商品ではありませんでした。商品の交換をお願いします。"
+          data-id="{{ $contact['id'] }}"
+          data-name="{{ $contact['last_name'] }} {{ $contact['first_name'] }}"
+          data-gender="{{ $genders[$contact['gender']] }}"
+          data-email="{{ $contact['email'] }}"
+          data-tel="{{ $contact['tel'] }}"
+          data-address="{{ $contact['address'] }}"
+          data-building="{{ $contact['building'] }}"
+          data-category="{{ $contact['category']['content'] }}"
+          data-detail="{{ $contact['detail'] }}"
           >
           詳細
           </button>
         </td>
       </tr>
-      <!-- endforeach -->
+      @endforeach
     </table>
   </div>
 <!-- ここからモーダル -->
@@ -158,8 +163,8 @@
         <table>
         <div class="modal__delete">
           <form id="deleteForm" method="post">
-          @csrf
-          @method('DELETE')
+            @csrf
+            @method('DELETE')
             <button type="submit" class="modal__delete-submit">
             削除
             </button>
@@ -190,10 +195,34 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('detail').textContent = btn.dataset.detail;
 
       document.getElementById('deleteForm').action =
-        `/items/${btn.dataset.id}`;
+        `/delete/${btn.dataset.id}`;
 
       modal.show();
     });
+  });
+});
+</script>
+<!-- hober機能 -->
+<script>
+document.querySelectorAll('.js-col-hover').forEach((table) => {
+  const cells = table.querySelectorAll('th, td');
+
+  const clear = () => {
+    table.querySelectorAll('.is-col-hover')
+      .forEach(el => el.classList.remove('is-col-hover'));
+  };
+
+  cells.forEach((cell) => {
+    cell.addEventListener('mouseenter', () => {
+      clear();
+      const colIndex = cell.cellIndex;
+      table.querySelectorAll('tr').forEach((tr) => {
+        const target = tr.children[colIndex];
+        if (target) target.classList.add('is-col-hover');
+      });
+    });
+
+    cell.addEventListener('mouseleave', clear);
   });
 });
 </script>

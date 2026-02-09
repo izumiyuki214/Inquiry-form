@@ -12,6 +12,10 @@
     font-family: serif;
 }
 
+.contact-table__inner td.is-col-hover {
+    background: #f9f4ee;
+}
+
 .search-form {
     display: flex;
     justify-content: space-between;
@@ -159,6 +163,46 @@
     border-radius: 3px;
     border: none;
     cursor: pointer;
+}
+
+.pagination nav > div:first-child {
+    display: none;
+}
+
+.pagination nav p {
+    display: none;
+}
+
+.pagination .inline-flex>*:not(:first-child):not(:last-child) {
+    padding: 0 5px;
+}
+
+.pagination .inline-flex>* {
+    border: 1px solid #555;
+    text-decoration: none;
+    cursor: pointer;
+    color: #555;
+}
+
+svg.w-5.h-5 {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.pagination span[aria-current="page"] {
+    background: #555;
+}
+
+.pagination span[aria-current="page"] span {
+    background: #555;
+    color: #fff;
+}
+
+.pagination .inline-flex>*:not(:first-child) {
+    border-left: none;
 }
 
 .contact-table {

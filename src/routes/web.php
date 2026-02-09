@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-// use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,12 +23,18 @@ Route::post('/thanks', [ContactController::class, 'store']);
 
 
 // ユーザー認証
+
+Route::post('/register', [UserController::class, 'store']);
+Route::get('/login', [UserController::class, 'login']);
+Route::post('/login', [UserController::class, 'authenticate']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
+    Route::post('/logout', [UserController::class, 'logout']);
 });
 
+
 // 管理画面
-Route::post('/search', [AdminController::class, 'search']);
-Route::post('/reset', [AdminController::class, 'index']);
-Route::post('/delete', [AdminController::class, 'delete']);
-Route::post('/export', [AdminController::class, 'export']);
+Route::get('/search', [AdminController::class, 'search']);
+Route::get('/reset', [AdminController::class, 'index']);
+Route::delete('/delete/{id}', [AdminController::class, 'delete']);
+Route::get('/export', [AdminController::class, 'export']);
