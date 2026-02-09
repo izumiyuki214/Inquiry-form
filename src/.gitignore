@@ -18,16 +18,12 @@
 !/storage/.gitignore
 !/storage/app/public/
 /storage/*.key
-!/storage/framework/**/.gitkeep
-
 
 # =========================
 # Cache
 # =========================
 /bootstrap/cache/*
 !/bootstrap/cache/.gitignore
-!/bootstrap/cache/.gitkeep
-
 
 # =========================
 # Public
