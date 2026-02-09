@@ -32,7 +32,16 @@ docker-compose exec php bash
 ```bash
 composer install
 ```
-エラー時は
+
+---
+
+### エラーが起きた際はこちらを入力してください
+
+```bash
+mkdir -p storage/framework/{views,cache,sessions} bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+```
+
 ---
 
 ### 環境変数の設定
