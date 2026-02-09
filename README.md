@@ -32,7 +32,7 @@ docker-compose exec php bash
 ```bash
 composer install
 ```
-
+エラー時は
 ---
 
 ### 環境変数の設定
